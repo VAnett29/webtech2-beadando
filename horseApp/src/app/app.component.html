@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <span><a [routerLink]="'/'" class="strip-link">Horses</a></span>
+  <span class="toolbar-spacer"></span>
+  <mat-nav-list class="list-horizontal">
+    <a mat-list-item [routerLink]="'list'" *ngIf="loginService.isLoggedIn()"> List </a>
+    <a mat-list-item [routerLink]="'add'" *ngIf="loginService.isLoggedIn()"> Add </a>
+    <a mat-list-item (click)="logout()" *ngIf="loginService.isLoggedIn()"> Logout </a>
+    <a mat-list-item [routerLink]="'login'" *ngIf="!loginService.isLoggedIn()"> Login </a>
+    <a mat-list-item [routerLink]="'register'" *ngIf="!loginService.isLoggedIn()"> Register </a>
+    
+ </mat-nav-list>
+</mat-toolbar>
+<router-outlet></router-outlet>
